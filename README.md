@@ -81,7 +81,7 @@
 4. Click one the orange button "Run Trello".
 
 -------
-### :point_down: If the view in your Postman looks like the one on the screenshot below, then you have successfully completed all the steps and run my collection. CONGRATULATIONS! :clap:
+### :point_down: If the view in your Postman looks like the one on the screenshot below, then you have successfully completed all the steps and run my collection. :clap:
 ![Trello - Run results](https://github.com/Martyelny/REST-API-Trello/assets/115575209/a13c8332-f5db-45d1-8d2f-e74dbdb5407f)
 
 
