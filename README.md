@@ -6,27 +6,30 @@
   - Get a Board
   - Update a Board
 - List
-  - Create a List on a Board
+  - Create a new List
+  - Get a List
   - Get Lists on Board
   - Update a List
-  - Archieve all Cards in List
+  - Archive all Cards in List
 - Card
   - Create a new Card
-  - Get a Card on a Board
+  - Get a Card
   - Update a Card
 - Checklist
-  - Create Checklist on a Board
-  - Get Checklists on a Board
+  - Create a Checklist
+  - Get a Checklist
   - Create Checkitem on Checklist
 - Delete
-  - Delete a Checklist on a Card
+  - Delete Checkitem from Checklist
+  - Delete a Checklist
   - Delete a Card
   - Delete a Board
+
 ## :electric_plug: How to get started?
 #### :pushpin: List of steps needed to run collection and tests:
 :one: [Postman installation](#one) 
 
-:two: [Creating a Trello acount](#two)
+:two: [Creating a Trello account](#two)
 
 :three: [Trello authentication](#three)
 
@@ -49,10 +52,10 @@
 
 #### <a name="three">:key: Trello authentication</a>
 1. Log in to your Trello account.
-2. Go to the Trello developer API key generation page.
-3. Click on the "Go to the Power-Up Admin Portal", then click "Create New Key" button and enter the required details.
-4. Your API key will be displayed on the page. Copy and save it for later use in Postman.
-5. Next, click on the Token link that appears under the key you just generated.
+2. Go to the [Trello developer API key generation page](https://trello.com/app-key).
+3. Click on the "Go to the Power-Up Admin Portal", confirm acceptance of terms and conditions, then press the "new" button and enter the required details.
+4. Generate a new API key. Copy and save it for later use in Postman.
+5. Next, click on the "token" link that will appear next to the generated key.
 6. Allow application to access your Trello account.
 7. Your token will be displayed on the page. Copy and save it for later use in Postman.
 
@@ -73,9 +76,12 @@
 
 #### <a name="six">:arrow_forward: Run collection and testing</a>
 1. Click on the "Collections" icon in Postman.
-2. From the list of collections, select the one named "Trello - REST API" and click on the icon with three dots that appears when you hover over the collection name.
+2. From the list of collections, select the one named "Trello" and click on the icon with three dots that appears when you hover over the collection name.
 3. Select "Run collection" from the list.
-4. Click one the orange button "Run Trello - REST API".
+4. Click one the orange button "Run Trello".
 
 -------
 ### :point_down: If the view in your Postman looks like the one on the screenshot below, then you have successfully completed all the steps and run my collection. CONGRATULATIONS! :clap:
+![Trello - Run results](https://github.com/Martyelny/REST-API-Trello/assets/115575209/a13c8332-f5db-45d1-8d2f-e74dbdb5407f)
+
+
