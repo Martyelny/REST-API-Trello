@@ -1,0 +1,1067 @@
+{
+	"info": {
+		"_postman_id": "c31ba4ad-a639-4abd-a5d1-b6ecd084265a",
+		"name": "Trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30885609"
+	},
+	"item": [
+		{
+			"name": "Board",
+			"item": [
+				{
+					"name": "[POST] Create a Board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct board name\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"boardName\"));\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"boardId\", resBody.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/boards/?name={{boardName}}&key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{boardName}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Get a Board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct board name\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"boardName\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response header - content-type\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response time less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/boards/{{boardId}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"boards",
+								"{{boardId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] Update a Board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct name update\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"boardUpdateName\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct description update\", function() {\r",
+									"    pm.expect(resBody.desc).eql(pm.collectionVariables.get(\"boardUpdateDesc\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/boards/{{boardId}}?key={{key}}&token={{token}}&name={{boardUpdateName}}&desc={{boardUpdateDesc}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"boards",
+								"{{boardId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "{{boardUpdateName}}"
+								},
+								{
+									"key": "desc",
+									"value": "{{boardUpdateDesc}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List",
+			"item": [
+				{
+					"name": "[POST] Create a new List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct list name\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"listName\"));\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"listId\", resBody.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/lists?name={{listName}}&idBoard={{boardId}}&key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{listName}}"
+								},
+								{
+									"key": "idBoard",
+									"value": "{{boardId}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Get a List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct list name\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"listName\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response time less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/lists/{{listId}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lists",
+								"{{listId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Get Lists on a Board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct new list name\", function() {\r",
+									"    pm.expect(resBody[0].name).eql(pm.collectionVariables.get(\"listName\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of the status of all lists\", function() {\r",
+									" resBody.forEach(item=>{\r",
+									"        pm.expect(item.status).eql(null);\r",
+									"      })\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response time less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/boards/{{boardId}}/lists?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"boards",
+								"{{boardId}}",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] Update a List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Verification of correct name update\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"listUpdateName\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/lists/{{listId}}?key={{key}}&token={{token}}&name={{listUpdateName}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lists",
+								"{{listId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "{{listUpdateName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Archive all Cards in List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if the response body is empty\", function() {\r",
+									"    pm.expect(resBody).include({});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/lists/{{listId}}/archiveAllCards?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lists",
+								"{{listId}}",
+								"archiveAllCards"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card",
+			"item": [
+				{
+					"name": "[POST] Create a new Card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct card name\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"cardName\"));\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"cardId\", resBody.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cards?idList={{listId}}&key={{key}}&token={{token}}&name={{cardName}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{listId}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "{{cardName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Get a Card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct card name\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"cardName\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of card status\", function() {\r",
+									"    pm.expect(resBody.closed).eql(false);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response time less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cards/{{cardId}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cards",
+								"{{cardId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] Update a Card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct name update\", function() {\r",
+									"    pm.expect(resBody.name).eql(pm.collectionVariables.get(\"cardUpdateName\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct description update\", function() {\r",
+									"    pm.expect(resBody.desc).eql(pm.collectionVariables.get(\"cardUpdateDesc\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cards/{{cardId}}?key={{key}}&token={{token}}&name={{cardUpdateName}}&desc={{cardUpdateDesc}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cards",
+								"{{cardId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "{{cardUpdateName}}"
+								},
+								{
+									"key": "desc",
+									"value": "{{cardUpdateDesc}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checklist",
+			"item": [
+				{
+					"name": "[POST] Create a Checklist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"checklistId\", resBody.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/checklists?idCard={{cardId}}&key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"checklists"
+							],
+							"query": [
+								{
+									"key": "idCard",
+									"value": "{{cardId}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Get a Checklist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of correct checklist id\", function() {\r",
+									"    pm.expect(resBody.id).eql(pm.collectionVariables.get(\"checklistId\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response time less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/checklists/{{checklistId}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"checklists",
+								"{{checklistId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Create a Checkitem on Checklist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"checkitemId\", resBody.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/checklists/{{checklistId}}/checkItems?name={{checkitemName}}&key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"checklists",
+								"{{checklistId}}",
+								"checkItems"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{checkitemName}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"item": [
+				{
+					"name": "[DEL] Delete Checkitem from Checklist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response info\", function() {\r",
+									"    pm.expect(resBody.limits).eql({});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/checklists/{{checklistId}}/checkItems/{{checkitemId}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"checklists",
+								"{{checklistId}}",
+								"checkItems",
+								"{{checkitemId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DEL] Delete a Checklist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response info\", function() {\r",
+									"    pm.expect(resBody.limits).eql({});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/checklists/{{checklistId}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"checklists",
+								"{{checklistId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DEL] Delete a Card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response info\", function() {\r",
+									"    pm.expect(resBody.limits).eql({});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cards/{{cardId}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cards",
+								"{{cardId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DEL] Delete a Board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verification of response code - 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verification of response info\", function() {\r",
+									"    pm.expect(resBody._value).to.eql(null);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/boards/{{boardId}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"boards",
+								"{{boardId}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "boardName",
+			"value": "Board name",
+			"type": "string"
+		},
+		{
+			"key": "boardId",
+			"value": ""
+		},
+		{
+			"key": "boardUpdateName",
+			"value": "Board name V2",
+			"type": "string"
+		},
+		{
+			"key": "boardUpdateDesc",
+			"value": "Board description",
+			"type": "string"
+		},
+		{
+			"key": "listName",
+			"value": "List name",
+			"type": "string"
+		},
+		{
+			"key": "listId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "listUpdateName",
+			"value": "List name V2",
+			"type": "string"
+		},
+		{
+			"key": "cardId",
+			"value": ""
+		},
+		{
+			"key": "cardName",
+			"value": "Card name",
+			"type": "string"
+		},
+		{
+			"key": "cardUpdateName",
+			"value": "Card name V2",
+			"type": "string"
+		},
+		{
+			"key": "cardUpdateDesc",
+			"value": "Card description",
+			"type": "string"
+		},
+		{
+			"key": "checklistId",
+			"value": ""
+		},
+		{
+			"key": "checkitemName",
+			"value": "Checkitem name",
+			"type": "string"
+		},
+		{
+			"key": "checkitemId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
