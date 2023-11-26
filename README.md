@@ -6,25 +6,25 @@ During this challenge I learned the basics of REST API testing, became familiar 
 
 The result of the project is a collection of Trello REST API tests performed in the Postman tool.
 ## :clipboard: Test scope based on [Trello API Documentation](https://developer.atlassian.com/cloud/trello/rest/api-group-actions/#api-group-actions)
-- Board
+- **Board**
   - Create a Board
   - Get a Board
   - Update a Board
-- List
+- **List**
   - Create a new List
   - Get a List
   - Get Lists on Board
   - Update a List
   - Archive all Cards in List
-- Card
+- **Card**
   - Create a new Card
   - Get a Card
   - Update a Card
-- Checklist
+- **Checklist**
   - Create a Checklist
   - Get a Checklist
   - Create Checkitem on Checklist
-- Delete
+- **Delete**
   - Delete Checkitem from Checklist
   - Delete a Checklist
   - Delete a Card
