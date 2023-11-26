@@ -87,7 +87,9 @@ The result of the project is a collection of Trello REST API tests performed in 
 
 -------
 ### If your view looks like the screenshot below you have successfully completed all the steps and tested my collection.
-![Trello - Run results](https://github.com/Martyelny/REST-API-Trello/assets/115575209/16bdf00e-d641-4f11-a243-861dc37c4e56)
+![Trello - Run results](https://github.com/Martyelny/REST-API-Trello/assets/115575209/9ecade6a-98de-4eb2-a6c2-5d8f313dcc8c)
 
+
+![Trello Run results2](https://github.com/Martyelny/REST-API-Trello/assets/115575209/9d496bd7-4b52-4d2e-9837-592774d0e86e)
 
 
