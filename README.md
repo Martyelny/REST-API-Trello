@@ -1,5 +1,10 @@
 # Trello REST API testing with Postman
 ## :mag_right: About project
+The project was made during self-study and the course "Software Testing in Practice" prepared by Rafal Podraza. 
+I created this project in order to practice, consolidate the acquired knowledge and document my skills.
+During this challenge I learned the basics of REST API testing, became familiar with the Postman tool, created my own collection based on Trello documentation and made scripts for test automation.
+
+The result of the project is a collection of Trello REST API tests performed in the Postman tool.
 ## :clipboard: Test scope based on [Trello API Documentation](https://developer.atlassian.com/cloud/trello/rest/api-group-actions/#api-group-actions)
 - Board
   - Create a Board
@@ -41,12 +46,12 @@
 
 --------
 #### <a name="one">:computer: Postman installation</a>
-1. Go to the Postman website and click the orange button with name of your operating system.
+1. Go to the [Postman website](https://www.postman.com/downloads/) and click the orange button with name of your operating system.
 2. Download the installation file, then run the installer and follow the instructions that appear.
 3. Postman is ready to use.
 
 #### <a name="two">:e-mail: Creating a Trello account</a>
-1. Go to the Trello website and click the blue button with text "Get Trello for free".
+1. Go to the [Trello website](https://trello.com/) and click the blue button with text "Get Trello for free".
 2. Create a Trello account by following the instructions that appear.
 3. Your Trello account is ready to use.
 
@@ -60,7 +65,7 @@
 7. Your token will be displayed on the page. Copy and save it for later use in Postman.
 
 #### <a name="four">:open_file_folder: Importing a file into Postman</a>
-1. Go to my Postman collection file.
+1. Go to [my Postman collection file](https://github.com/Martyelny/REST-API-Trello/blob/main/Trello.postman_collection.json).
 2. Click on the three dots icon in the top right corner and click "Download".
 3. Run Postman and click on "Import" button in the top left corner.
 4. Drag and drop the downloaded file from the Download folder into the "Import" window.
@@ -81,7 +86,7 @@
 4. Click one the orange button "Run Trello".
 
 -------
-### :point_down: If the view in your Postman looks like the one on the screenshot below, then you have successfully completed all the steps and run my collection. :clap:
+### If your view looks like the screenshot below you have successfully completed all the steps and tested my collection.
 ![Trello - Run results](https://github.com/Martyelny/REST-API-Trello/assets/115575209/a13c8332-f5db-45d1-8d2f-e74dbdb5407f)
 
 
