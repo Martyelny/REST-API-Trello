@@ -77,7 +77,7 @@ The result of the project is a collection of Trello REST API tests performed in 
 3. Give your environment a name.
 4. Create a "key", "token" and "baseURL" variable. You should enter the value "https://api.trello.com/1/" into the "baseURL" variable and the value of your key and token in the "key" and "token" variable. For collections from this repository, the API key variable is named {{key}}, the token variable is named {{token}} and the URL variable is named {{baseURL}}.
 5. Click "Save" button to save the environment.
-6. Click on the "Environment" dropdown in the top left corner and select the environment you just created.
+6. Click on the "No Environment" dropdown in the top right corner and select the environment you just created.
 
 #### <a name="six">:arrow_forward: Run collection and testing</a>
 1. Click on the "Collections" icon in Postman.
