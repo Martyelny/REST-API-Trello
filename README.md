@@ -86,7 +86,7 @@ The result of the project is a collection of Trello REST API tests performed in 
 4. Click one the orange button "Run Trello".
 
 -------
-### If your view looks like the screenshot below you have successfully completed all the steps and tested my collection.
+### :arrow_down: If your view looks like the screenshot below you have successfully completed all the steps and tested my collection.
 ![Trello - Run results](https://github.com/Martyelny/REST-API-Trello/assets/115575209/9ecade6a-98de-4eb2-a6c2-5d8f313dcc8c)
 
 
